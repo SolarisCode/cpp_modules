@@ -17,6 +17,7 @@ Weapon::Weapon(Weapon const& src) {
 }
 
 Weapon& Weapon::operator=(Weapon const& rhs) {
+    std::cout << "Assignment Operator called!" << std::endl;
     if (this != &rhs) {
         this->_type = rhs.getType();
     }
