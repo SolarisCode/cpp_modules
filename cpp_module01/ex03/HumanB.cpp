@@ -1,58 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 22:26:26 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/10 18:44:24 by melkholy         ###   ########.fr       */
+/*   Created: 2023/07/10 15:27:05 by melkholy          #+#    #+#             */
+/*   Updated: 2023/07/10 17:53:53 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "HumanB.hpp"
 typedef std::string String;
 
-HumanA::HumanA(String name, Weapon& weapon) : _name(name), _weapon(weapon) {
+HumanB::HumanB(void) {
+	std::cout << "Default Constructor called!" << std::endl;
+	return;
+}
+
+HumanB::HumanB(String name) : _name(name) {
 	std::cout << "Parametric Constructor called!" << std::endl;
 	return;
 }
 
-HumanA::HumanA(HumanA const& src) : _weapon(src.getWeapon()){
+HumanB::HumanB(HumanB const& src) {
 	std::cout << "Copy Constructor called!" << std::endl;
 	*this = src;
 	return;
 }
 
-HumanA&	HumanA::operator=(HumanA const& rhs) {
+HumanB&	HumanB::operator=(HumanB const& rhs) {
 	std::cout << "Assignment Operator called!" << std::endl;
 	if (this != &rhs) {
 		this->_name = rhs.getName();
-		this->_weapon = rhs.getWeapon();
+		*(this->_weapon) = rhs.getWeapon();
 	}
 	return (*this);
 }
 
-String	HumanA::getName(void) const {
-	return (this->_name);
-}
-
-Weapon&	HumanA::getWeapon(void) const {
-	return (this->_weapon);
-}
-
-void	HumanA::attack(void) const {
-	std::cout << this->_name << " attacks with their " << this->_weapon << std::endl;
+void	HumanB::setWeapon(Weapon& weapon) {
+	this->_weapon = &weapon;
 	return;
 }
 
-HumanA::~HumanA(void) {
+String	HumanB::getName(void) const {
+	return (this->_name);
+}
+
+Weapon	HumanB::getWeapon(void) const {
+	return (*this->_weapon);
+}
+
+void	HumanB::attack(void) const {
+	std::cout << this->_name << " attacks with their " << *this->_weapon << std::endl;
+	return;
+}
+
+HumanB::~HumanB(void) {
 	std::cout << "Destructor Called!" << std::endl;
 	return;
 }
 
-std::ostream&	operator<<(std::ostream& OST, HumanA const& humanA) {
-	OST << "Human Name: " << humanA.getName() << std::endl;
-	OST << "Human Weapon: " << humanA.getWeapon() << std::endl;
+std::ostream&	operator<<(std::ostream& OST, HumanB const& humanB) {
+	OST << "Human Name: " << humanB.getName() << std::endl;
+	OST << "Human Weapon: " << humanB.getWeapon() << std::endl;
 	return (OST);
 }

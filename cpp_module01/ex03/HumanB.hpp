@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 22:26:46 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/10 18:44:28 by melkholy         ###   ########.fr       */
+/*   Created: 2023/07/10 15:17:41 by melkholy          #+#    #+#             */
+/*   Updated: 2023/07/10 17:40:54 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@
 #include "Weapon.hpp"
 typedef std::string String;
 
-class HumanA {
+class	HumanB {
 private:
 	String	_name;
-	Weapon&	_weapon;
+	Weapon*	_weapon;
 public:
-	HumanA(String name, Weapon& weapon);
-	HumanA(HumanA const& src);
-	HumanA&	operator=(HumanA const& rhs);
+	HumanB(void);
+	HumanB(String name);
+	HumanB(HumanB const& src);
+	HumanB&	operator=(HumanB const& rhs);
+	void	setWeapon(Weapon& weapon);
 	String	getName(void) const;
-	Weapon&	getWeapon(void) const;
+	Weapon	getWeapon(void) const;
 	void	attack(void) const;
-	~HumanA(void);
+	~HumanB(void);
 };
 
-std::ostream&	operator<<(std::ostream& OST, HumanA const& humanA);
+std::ostream&	operator<<(std::ostream& OST, Weapon const& HumanB);
