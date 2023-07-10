@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:26:56 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/10 15:11:45 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:13:29 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,20 @@ Weapon&	Weapon::operator=(Weapon const& rhs) {
 }
 
 void	Weapon::setType(std::string type) {
-	_type = type;
+	this->_type = type;
 	return;
 }
 
-std::string const&   Weapon::getType(void) const {
-	return (_type);
+std::string Weapon::getType(void) const {
+	return (this->_type);
 }
 
 Weapon::~Weapon(void) {
 	std::cout << "Destructor Called!" << std::endl;
 	return;
+}
+
+std::ostream&	operator<<(std::ostream& OST, Weapon const& weapon) {
+	OST << weapon.getType();
+	return (OST);
 }

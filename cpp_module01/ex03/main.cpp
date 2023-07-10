@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 22:27:08 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/10 17:39:16 by melkholy         ###   ########.fr       */
+/*   Created: 2023/07/10 17:37:05 by melkholy          #+#    #+#             */
+/*   Updated: 2023/07/10 17:42:48 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <iostream>
-#include <string>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-class Weapon {
-private:
-	std::string _type;
-public:
-	Weapon(void);
-	Weapon(std::string type);
-	Weapon(Weapon const& src);
-	Weapon&		operator=(Weapon const& rhs);
-	void		setType(std::string type);
-	std::string	getType(void) const;
-	~Weapon(void);
-};
-
-std::ostream&	operator<<(std::ostream& OST, Weapon const& weapon);
+int main()
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
+}
