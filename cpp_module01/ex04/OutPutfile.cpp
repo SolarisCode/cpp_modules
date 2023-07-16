@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:07:32 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/16 18:17:38 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:36:51 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,10 @@ void	OutPutFile::replaceString(std::string& oldString, std::string& newString) {
 OutPutFile::~OutPutFile(void) {
 	std::cout << "Destructor Called!" << std::endl;
 	return;
+}
+
+std::ostream& operator<<(std::ostream& OST, OutPutFile const& outfile) {
+	OST << "Filename: " << outfile.getFileName() << std::endl;
+	OST << "Last Wrote Line: "<< outfile.getLastLine() << std::endl;
+	return (OST);
 }

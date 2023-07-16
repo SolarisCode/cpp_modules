@@ -6,7 +6,7 @@
 #    By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/16 17:57:02 by melkholy          #+#    #+#              #
-#    Updated: 2023/07/16 18:07:46 by melkholy         ###   ########.fr        #
+#    Updated: 2023/07/16 18:37:44 by melkholy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ $(NAME): $(CPPFILES)
 	c++ $(CPPFLAGS) $(CPPFILES) -o $(NAME)
 
 clean:
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 fclean: clean
 

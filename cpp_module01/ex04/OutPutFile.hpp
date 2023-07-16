@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:43:42 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/16 18:16:44 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:32:17 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	OutPutFile(std::string filename);
 	OutPutFile(OutPutFile const& src);
 	OutPutFile	&operator=(OutPutFile const& rhs);
-	void	setFileName(std::string filename);
+	void		setFileName(std::string filename);
 	std::string	getFileName(void) const;
 	void		setLastLine(std::string& lastline);
 	std::string	getLastLine(void) const;
@@ -38,3 +38,5 @@ private:
 	bool			_fileIsOpen(void) const;
 	bool			_findString(std::string& str);
 };
+
+std::ostream& operator<<(std::ostream& OST, OutPutFile const& outfile);
