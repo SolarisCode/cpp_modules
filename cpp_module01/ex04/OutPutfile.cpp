@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:07:32 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/16 18:36:51 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:44:55 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,6 @@ bool	OutPutFile::_fileIsOpen(void) const {
 }
 
 bool	OutPutFile::openOutFile(void) {
-	// if (!filename.empty()) {
-	// 	this->_oFile.open(filename);
-	// 	return (this->_fileIsOpen());
-	// }
 	this->_oFile.open(this->_fileName.c_str());
 	return (this->_fileIsOpen());
 }
