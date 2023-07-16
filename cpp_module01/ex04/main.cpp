@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:46:30 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/16 18:18:23 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:24:35 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ std::string* convertToStringObject(char **argv) {
 	}
 	return (inPutArgs);
 }
-
 
 int	main(int argc, char* argv[]) {
 	InPutFile		inputFile;
