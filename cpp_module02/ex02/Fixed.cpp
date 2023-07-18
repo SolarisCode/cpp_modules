@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:09:27 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/19 01:11:40 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/19 01:28:19 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,28 @@ bool	Fixed::operator!=(Fixed const& other) const {
 	return (this->getRawBits() != other.getRawBits());
 }
 
-Fixed&	Fixed::operator+(Fixed const& other) {
-	this->setRawBits(this->getRawBits() + other.getRawBits());
-	return (*this);
+Fixed	Fixed::operator+(Fixed const& other) const {
+	Fixed newFixed;
+	newFixed.setRawBits(this->getRawBits() + other.getRawBits());
+	return (newFixed);
 }
 
-Fixed&	Fixed::operator-(Fixed const& other) {
-	this->setRawBits(this->getRawBits() - other.getRawBits());
-	return (*this);
+Fixed	Fixed::operator-(Fixed const& other) const {
+	Fixed newFixed;
+	newFixed.setRawBits(this->getRawBits() - other.getRawBits());
+	return (newFixed);
 }
 
-Fixed&	Fixed::operator*(Fixed const& other) {
-	this->setRawBits(this->getRawBits() * other.getRawBits());
-	return (*this);
+Fixed	Fixed::operator*(Fixed const& other) const {
+	Fixed newFixed;
+	newFixed.setRawBits(this->getRawBits() * other.getRawBits());
+	return (newFixed);
 }
 
-Fixed&	Fixed::operator/(Fixed const& other) {
-	this->setRawBits(this->getRawBits() / other.getRawBits());
-	return (*this);
+Fixed	Fixed::operator/(Fixed const& other) const {
+	Fixed newFixed;
+	newFixed.setRawBits(this->getRawBits() / other.getRawBits());
+	return (newFixed);
 }
 
 Fixed::~Fixed(void) {
