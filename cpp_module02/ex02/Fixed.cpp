@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:09:27 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/19 01:01:23 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/19 01:04:20 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,18 @@ bool	Fixed::operator>(Fixed const& other) const {
 
 bool	Fixed::operator<=(Fixed const& other) const {
 	return (this->getRawBits() <= other.getRawBits());
+}
+
+bool	Fixed::operator>=(Fixed const& other) const {
+	return (this->getRawBits() >= other.getRawBits());
+}
+
+bool	Fixed::operator==(Fixed const& other) const {
+	return (this->getRawBits() == other.getRawBits());
+}
+
+bool	Fixed::operator!=(Fixed const& other) const {
+	return (this->getRawBits() != other.getRawBits());
 }
 
 Fixed::~Fixed(void) {
