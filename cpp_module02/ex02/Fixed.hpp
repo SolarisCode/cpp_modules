@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:00:45 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/19 01:27:55 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/19 03:54:57 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ public:
 	Fixed	operator*(Fixed const& other) const;
 	Fixed	operator/(Fixed const& other) const;
 	Fixed&	operator++(void);
-	Fixed&	operator++(int);
+	Fixed	operator++(int);
 	Fixed&	operator--(void);
-	Fixed&	operator--(int);
-	static Fixed&	min(Fixed& fixedOne, Fixed& fixedSecond);
-	static Fixed&	min(Fixed const& fixedOne, Fixed const& fixedSecond);
-	static Fixed&	max(Fixed& fixedOne, Fixed& fixedSecond);
-	static Fixed&	max(Fixed const& fixedOne, Fixed const& fixedSecond);
+	Fixed	operator--(int);
+	static Fixed&		min(Fixed& fixedOne, Fixed& fixedSecond);
+	static Fixed const&	min(Fixed const& fixedOne, Fixed const& fixedSecond);
+	static Fixed&		max(Fixed& fixedOne, Fixed& fixedSecond);
+	static Fixed const&	max(Fixed const& fixedOne, Fixed const& fixedSecond);
 	~Fixed(void);
 
 private:
