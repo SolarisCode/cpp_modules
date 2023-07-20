@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:54:13 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/20 16:58:24 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:10:10 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	ClapTrap::attack(const std::string& target) {
 void	ClapTrap::takeDamage(unsigned int amount) {
 	int	newHitPoints;
 
-	newHitPoints = this->getHitPoints() < amount ? 0: this->getHitPoints() - amount;
+	newHitPoints = (unsigned)this->getHitPoints() < amount ? 0: this->getHitPoints() - amount;
 	this->setHitPoints(newHitPoints);
 	std::cout << "ClapTrap " << this->getName() <<
-		" is takeing " << amount << " points of damage!, new Hit points: " <<
+		" is taking " << amount << " points of damage!, new Hit points: " <<
 		this->getHitPoints() << std::endl;
 	return;
 }
@@ -73,7 +73,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	this->setHitPoints(this->getHitPoints() + amount);
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 	std::cout << "ClapTrap " << this->getName() <<
-		" repaired itself, new Hit points: " << std::endl;
+		" repaired itself, new Hit points: " << this->getHitPoints() << std::endl;
 	return;
 }
 
