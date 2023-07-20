@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:18:43 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/20 22:07:07 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/20 23:35:41 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ public:
 	ScavTrap(ScavTrap const& src);
 	ScavTrap& operator=(ScavTrap const& rhs);
 	void	guardGate(void);
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
+	void	attack(const std::string& target);
 	~ScavTrap(void);
 };
