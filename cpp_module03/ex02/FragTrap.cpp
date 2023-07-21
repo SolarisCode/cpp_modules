@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 21:15:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/20 23:54:19 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:44:07 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	return;
 }
 
-FragTrap::FragTrap(FragTrap const& src) : ClapTrap() {
+FragTrap::FragTrap(FragTrap const& src) : ClapTrap(src) {
 	std::cout << "FragTrap Copy Constructor Called!" << std::endl;
 	*this = src;
 	return;

@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 21:15:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/20 23:18:49 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:44:39 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& src) : ClapTrap() {
+ScavTrap::ScavTrap(ScavTrap const& src) : ClapTrap(src) {
 	std::cout << "ScavTrap Copy Constructor Called!" << std::endl;
 	*this = src;
 	return;
