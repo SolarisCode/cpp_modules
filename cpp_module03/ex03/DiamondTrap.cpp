@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 00:39:18 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/21 14:06:36 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:26:46 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@
 
 DiamondTrap::DiamondTrap(void) {
 	std::cout << "DiamondTrap Default Constructor Called!" << std::endl;
+	this->setName("DiamondTrap");
+	this->ClapTrap::setName(this->getName() + "_clap_name");
+	this->setHitPoints(FragTrap::hitPoints);
+	this->setEnergyPoints(ScavTrap::energyPoints);
+	this->setAttackDamage(FragTrap::attackDamage);
 	return;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-	: ClapTrap(name + "_clap_name"), _name(name) {
+	: _name(name) {
 	std::cout << "DiamondTrap Parametric Constructor Called!" << std::endl;
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+	this->ClapTrap::setName(name + "_clap_name");
+	this->setHitPoints(FragTrap::hitPoints);
+	this->setEnergyPoints(ScavTrap::energyPoints);
+	this->setAttackDamage(FragTrap::attackDamage);
 	return;
 }
 
@@ -40,10 +46,10 @@ DiamondTrap::DiamondTrap(DiamondTrap const& src)
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& rhs) {
 	std::cout << "DiamondTrap Assignment operator called!" << std::endl;
 	if (this != &rhs) {
-		this->setName(rhs.getName());
-		this->setHitPoints(rhs.getHitPoints());
-		this->setEnergyPoints(rhs.getEnergyPoints());
-		this->setAttackDamage(rhs.getAttackDamage());
+		this->setName(rhs.DiamondTrap::getName());
+		this->setHitPoints(rhs.FragTrap::hitPoints);
+		this->setEnergyPoints(rhs.ScavTrap::energyPoints);
+		this->setAttackDamage(rhs.FragTrap::attackDamage);
 	}
 	return (*this);
 }
@@ -62,7 +68,7 @@ void	DiamondTrap::attack(std::string target) {
 
 void	DiamondTrap::whoAmI(void) {
 	std::cout << "My name is: " << this->getName()
-				<< ", my ClapTrap name is: " << ClapTrap::getName()
+				<< ", my ClapTrap name is: " << this->ClapTrap::getName()
 				<< std::endl;
 	return;
 }
@@ -70,4 +76,12 @@ void	DiamondTrap::whoAmI(void) {
 DiamondTrap::~DiamondTrap(void) {
 	std::cout << "DiamondTrap Destructor Called!" << std::endl;
 	return;
+}
+
+std::ostream&	operator<<(std::ostream& OST, DiamondTrap const& diamondtrap) {
+	OST << diamondtrap.getName() << " health status:" << std::endl;
+	OST << "Hit Points: " << diamondtrap.getHitPoints() << std::endl;
+	OST << "Energy Points: " << diamondtrap.getEnergyPoints() << std::endl;
+	OST << "Attack Damage: " << diamondtrap.getAttackDamage() << std::endl;
+	return (OST);
 }

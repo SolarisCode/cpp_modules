@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 21:15:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/21 13:54:57 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:38:28 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 FragTrap::FragTrap(void) {
 	std::cout << "FragTrap Default Constructor Called!" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+	this->setName("FragTrap");
+	this->setHitPoints(this->hitPoints);
+	this->setEnergyPoints(this->energyPoints);
+	this->setAttackDamage(this->attackDamage);
 	return;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap Parametric Constructor Called!" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+	this->setHitPoints(this->hitPoints);
+	this->setEnergyPoints(this->energyPoints);
+	this->setAttackDamage(this->attackDamage);
 	return;
 }
 
@@ -58,8 +59,8 @@ void	FragTrap::attack(const std::string& target) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	std::cout << this->getName() << " is requesting a positive high five!"
-			<< std::endl;
+	std::cout << "FragTrap " << this->getName()
+		<< " is requesting a positive high five!" << std::endl;
 	return;
 }
 
