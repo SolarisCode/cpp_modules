@@ -6,12 +6,12 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:06:54 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 02:42:18 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/22 21:41:11 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 WrongCat::WrongCat(void) {
 	std::cout << "WrongCat Default Constructor Called!" << std::endl;
