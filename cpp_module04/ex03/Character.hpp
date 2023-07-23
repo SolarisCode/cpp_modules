@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 01:49:58 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 03:32:30 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 18:42:56 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ class Character : public ICharacter
 {
 public:
 	Character(void);
-	Character(std::string& name);
+	Character(std::string name);
 	Character(Character const& src);
 	Character &operator=(Character const& rhs);
 	AMateria* const*	getInventory(void) const;
 	AMateria* const*	getEquiped(void) const;
 	std::string const&	getName() const;
+	void	setToNull(void);
 	void	setLength(int count);
 	int		getLength(void) const;
 	void	setEquipLength(int count);

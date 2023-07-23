@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 02:16:57 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 03:39:36 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 19:56:44 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,57 @@
 #include <string>
 
 Character::Character(void) : _length(0), _equipLength(0) {
-	std::cout << "Character Defualt Constructor Called!" << std::endl;
+	this->setToNull();
 	return;
 }
 
-Character::Character(std::string& name)
+Character::Character(std::string name)
 	: _name(name), _length(0), _equipLength(0) {
-	std::cout << "Character Parametric Constructor Called!" << std::endl;
+	this->setToNull();
 	return;
 }
 
-Character::Character(Character const& src) {
-	std::cout << "Character Copy Constructor Called!" << std::endl;
+Character::Character(Character const& src) : _length(0), _equipLength(0) {
 	if (src.getLength())
 	{
 		for (int index = 0; index < src.getLength(); index++) {
-			this->_inventory[index] = src.getInventory()[index];
+			this->_inventory[index] = src.getInventory()[index]->clone();
 		}
 		this->setLength(src.getLength());
 	}
-	else
-		this->_length = 0;
 	if (src.getEquipLength())
 	{
 		for (int index = 0; index < src.getEquipLength(); index++) {
-			this->_inventory[index] = src.getEquiped()[index];
+			this->_equiped[index] = src.getEquiped()[index]->clone();
 		}
 		this->setEquipLength(src.getEquipLength());
 	}
-	else
-		this->_equipLength = 0;
 	this->setName(src.getName());
 	return;
 }
 
 Character&	Character::operator=(Character const& rhs) {
-	std::cout << "Character Assignment operator Called!" << std::endl;
 	if (rhs.getLength()) {
 		for (int index = 0; index < rhs.getLength(); index++) {
-			this->_inventory[index] = rhs.getInventory()[index];
+			this->_inventory[index] = rhs.getInventory()[index]->clone();
 		}
 		this->setLength(rhs.getLength());
 	}
 	if (rhs.getEquipLength()) {
 		for (int index = 0; index < rhs.getEquipLength(); index++) {
-			this->_inventory[index] = rhs.getEquiped()[index];
+			this->_equiped[index] = rhs.getEquiped()[index]->clone();
 		}
 		this->setEquipLength(rhs.getEquipLength());
 	}
 	this->setName(rhs.getName());
 	return (*this);
+}
+
+void	Character::setToNull(void) {
+	for (int i = 0; i < 4; i++) {
+		this->_inventory[i] = NULL;
+		this->_equiped[i] = NULL;
+	}
 }
 
 
@@ -124,13 +125,15 @@ void	Character::unequip(int idx) {
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	if (idx > this->getEquipLength()) {
+	if (idx > this->getLength() - 1 || !this->_inventory[idx]) {
 		return;
 	}
-	this->_equiped[idx]->use(target);
+	this->_inventory[idx]->use(target);
 }
 
 Character::~Character(void) {
-	std::cout << "Character Destructor Called!" << std::endl;
+	for (int index = 0; index < getLength(); index++) {
+		delete this->_inventory[index];
+	}
 	return;
 }

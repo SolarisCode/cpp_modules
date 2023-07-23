@@ -6,26 +6,22 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 00:56:03 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 01:48:11 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 19:57:19 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include "AMateria.hpp"
 
-Cure::Cure(void) : AMateria("Cure") {
-	std::cout << "Cure Default Constructor Called!" << std::endl;
+Cure::Cure(void) : AMateria("cure") {
 	return;
 }
 
-Cure::Cure(Cure const& src) {
-	std::cout << "Cure copy Constructor Called!" << std::endl;
-	this->setType(src.getType());
+Cure::Cure(Cure const& src) : AMateria(src.getType()) {
 	return;
 }
 
 Cure&	Cure::operator=(Cure const& rhs) {
-	std::cout << "Cure Assignment operator Called!" << std::endl;
 	if (this != &rhs) {
 		this->setType(rhs.getType());
 	}
@@ -33,16 +29,15 @@ Cure&	Cure::operator=(Cure const& rhs) {
 }
 
 Cure*	Cure::clone(void) const {
-	Cure*	cloneCure = new Cure(*this);
+	Cure*	cloneCure = new Cure();
 	return (cloneCure);
 }
 
-void	Cure::use(ICharacter& terget) {
-	std::cout << "* heals <name>’s wounds *" << std::endl;
+void	Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 	return;
 }
 
 Cure::~Cure(void) {
-	std::cout << "Cure Destructor Called!" <<  std::endl;
 	return;
 }

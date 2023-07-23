@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 22:42:03 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 03:47:06 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 20:03:03 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	std::string const&	getType(void) const;
 	void				setType(std::string const& type);
 	virtual AMateria*	clone(void) const = 0;
-	virtual void		use(ICharacter& terget);
+	virtual void		use(ICharacter& target);
 	virtual	~AMateria(void);
 
 protected:

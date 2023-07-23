@@ -6,31 +6,22 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 00:56:03 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 01:42:10 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 19:57:41 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "AMateria.hpp"
 
-Ice::Ice(void) : AMateria("Ice") {
-	std::cout << "Ice Default Constructor Called!" << std::endl;
+Ice::Ice(void) : AMateria("ice") {
 	return;
 }
 
-// Ice::Ice(std::string const& type) : AMateria(type) {
-// 	std::cout << "Ice Parametric Constructor Called!" << std::endl;
-// 	return;
-// }
-
-Ice::Ice(Ice const& src) {
-	std::cout << "Ice copy Constructor Called!" << std::endl;
-	this->setType(src.getType());
+Ice::Ice(Ice const& src) : AMateria(src.getType()) {
 	return;
 }
 
 Ice&	Ice::operator=(Ice const& rhs) {
-	std::cout << "Ice Assignment operator Called!" << std::endl;
 	if (this != &rhs) {
 		this->setType(rhs.getType());
 	}
@@ -38,16 +29,15 @@ Ice&	Ice::operator=(Ice const& rhs) {
 }
 
 Ice*	Ice::clone(void) const {
-	Ice*	cloneIce = new Ice(*this);
+	Ice*	cloneIce = new Ice();
 	return (cloneIce);
 }
 
-void	Ice::use(ICharacter& terget) {
-	std::cout << "* shoots an ice bolt at <name> *" << std::endl;
+void	Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	return;
 }
 
 Ice::~Ice(void) {
-	std::cout << "Ice Destructor Called!" <<  std::endl;
 	return;
 }
