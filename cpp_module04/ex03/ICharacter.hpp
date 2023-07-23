@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 22:51:28 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/23 02:12:16 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/23 03:46:51 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "AMateria.hpp"
+class	AMateria;
 
 class ICharacter
 {
