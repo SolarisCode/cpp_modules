@@ -6,7 +6,7 @@
 #    By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 17:01:20 by melkholy          #+#    #+#              #
-#    Updated: 2023/07/22 18:20:05 by melkholy         ###   ########.fr        #
+#    Updated: 2023/07/23 19:09:00 by melkholy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,6 @@ clean:
 
 fclean: clean
 
-re: all fclean
+re: fclean all
 
 .PHONY: all clean fclean re
