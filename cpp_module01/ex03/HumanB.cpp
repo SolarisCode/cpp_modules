@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:27:05 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/10 17:53:53 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:53:15 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ HumanB::HumanB(void) {
 	return;
 }
 
-HumanB::HumanB(String name) : _name(name) {
+HumanB::HumanB(String name) : _name(name), _weapon(NULL) {
 	std::cout << "Parametric Constructor called!" << std::endl;
 	return;
 }
@@ -52,7 +52,11 @@ Weapon	HumanB::getWeapon(void) const {
 }
 
 void	HumanB::attack(void) const {
-	std::cout << this->_name << " attacks with their " << *this->_weapon << std::endl;
+	if (!this->_weapon) {
+		std::cout << "Attacking with bare hands!" << std::endl;
+	}
+	else
+		std::cout << this->_name << " attacks with their " << *this->_weapon << std::endl;
 	return;
 }
 
