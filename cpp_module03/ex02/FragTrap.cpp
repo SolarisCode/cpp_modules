@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 21:15:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/21 17:44:07 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:24:17 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	FragTrap::attack(const std::string& target) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	std::cout << this->getName() << " is requesting a positive high five!"
+	std::cout << "FragTrap " << this->getName() << " is requesting a positive high five!"
 			<< std::endl;
 	return;
 }
