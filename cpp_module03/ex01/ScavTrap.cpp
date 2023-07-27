@@ -6,16 +6,15 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 21:15:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/21 17:47:02 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:04:12 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap") {
 	std::cout << "ScavTrap Default Constructor Called!" << std::endl;
-	this->setName("ScavTrap");
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);

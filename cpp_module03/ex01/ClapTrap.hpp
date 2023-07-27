@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:44:19 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/20 16:17:56 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:01:52 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	void		setAttackDamage(int attackPoints);
 	~ClapTrap(void);
 
-private:
+protected:
 	std::string	_name;
 	int			_hitPoints;
 	int			_energyPoints;
