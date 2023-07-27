@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 19:09:27 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/18 23:06:26 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:35:18 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed(void) : _fixedPointNum(0) {
 
 Fixed::Fixed(int const intNum) {
 	std::cout << "Int constructor called" << std::endl;
-	this->setRawBits(intNum * (1 << Fixed::fractionalBits));
+	this->setRawBits(intNum << Fixed::fractionalBits);
 	return;
 }
 
@@ -28,7 +28,7 @@ Fixed::Fixed(float const floatNum) {
 
 	bias = floatNum > 0 ? 0.5: -0.5;
 	std::cout << "Float constructor called" << std::endl;
-	this->setRawBits(floatNum * (1 << Fixed::fractionalBits) + bias);
+	this->setRawBits(floatNum * (float)(1 << Fixed::fractionalBits) + bias);
 	return;
 }
 
@@ -55,11 +55,11 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 int	Fixed::toInt(void) const {
-	return (this->getRawBits() / (1 << Fixed::fractionalBits));
+	return (this->getRawBits() >> Fixed::fractionalBits);
 }
 
 float	Fixed::toFloat(void) const{
-	return ((float)this->getRawBits() / (1 << Fixed::fractionalBits));
+	return ((float)this->getRawBits() / (float)(1 << Fixed::fractionalBits));
 }
 
 Fixed::~Fixed(void) {
