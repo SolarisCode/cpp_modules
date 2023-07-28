@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:32:07 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 20:08:43 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 18:40:23 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,12 @@ int main()
 	std::cout << std::endl;
 	doggy.makeSound();
 	std::cout << std::endl;
+	// Dog	basic;
+	// std::cout << std::endl;
+	// {
+	// 	Dog tmp = basic;
+	// std::cout << std::endl;
+	// }
+	// std::cout << std::endl;
 	return 0;
 }
