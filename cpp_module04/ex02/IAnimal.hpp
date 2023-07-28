@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 00:25:44 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 21:35:33 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:03:34 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 class	IAnimal
 {
 public:
-	virtual std::string	getType(void) const = 0;
-	virtual void		setType(std::string type) = 0;
+	IAnimal(void);
+	IAnimal(IAnimal const& src);
+	IAnimal& operator=(IAnimal const& rhs);
+	virtual std::string	getType(void) const;
+	virtual void		setType(std::string type);
 	virtual void		makeSound(void) const = 0;
-	virtual	~IAnimal(void) {};
+	virtual	~IAnimal(void);
 
 protected:
 	std::string	_type;
