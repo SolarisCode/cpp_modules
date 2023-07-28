@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 00:53:17 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 21:37:53 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:14:46 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ public:
 	Cat(void);
 	Cat(Cat const& src);
 	Cat&	operator=(Cat const& rhs);
-	std::string	getType(void) const;
-	void		setType(std::string type);
 	void		makeSound(void) const;
 	void		setBrain(Brain* newBrain);
 	Brain*		getBrain(void) const;

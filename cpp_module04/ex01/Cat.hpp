@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 00:53:17 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/28 18:39:38 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:16:26 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	virtual ~Cat(void);
 
 private:
-	Brain* _brain;
+	Brain*	_brain;
 };
 
 #endif

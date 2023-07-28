@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:06:54 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 21:38:10 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:14:56 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ Cat&	Cat::operator=(Cat const& rhs) {
 		this->_brain->setIdeas(rhs.getBrain()->getIdeas());
 	}
 	return (*this);
-}
-
-std::string	Cat::getType(void) const {
-	return (this->_type);
-}
-
-void	Cat::setType(std::string type) {
-	this->_type = type;
-	return;
 }
 
 void	Cat::makeSound(void) const {

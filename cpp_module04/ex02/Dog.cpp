@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:06:54 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/22 21:36:38 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/28 19:15:29 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,6 @@ Dog&	Dog::operator=(Dog const& rhs) {
 		this->_brain->setIdeas(rhs.getBrain()->getIdeas());
 	}
 	return (*this);
-}
-
-std::string	Dog::getType(void) const {
-	return (this->_type);
-}
-
-void	Dog::setType(std::string type) {
-	this->_type = type;
-	return;
 }
 
 void	Dog::makeSound(void) const {
