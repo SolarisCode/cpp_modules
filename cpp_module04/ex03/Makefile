@@ -6,15 +6,15 @@
 #    By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 17:01:20 by melkholy          #+#    #+#              #
-#    Updated: 2023/07/23 19:08:23 by melkholy         ###   ########.fr        #
+#    Updated: 2023/07/28 19:31:11 by melkholy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animals
+NAME = amateria
 CPPFILES = ./Ice.cpp ./Cure.cpp ./AMateria.cpp \
 			./Character.cpp ./MateriaSource.cpp \
 			./main.cpp
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
