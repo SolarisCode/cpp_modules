@@ -1,12 +1,12 @@
 /* ************************************************************************* */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:00:20 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/04 22:19:05 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:26:12 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	PhoneBook::addContact(String first, String last, String nick,
 	Contact contact = Contact(first, last, nick, phonenum, secret);
 	this->Contacts[count] = contact;
 	this->numOfContacts++;
-	if (this->numOfContacts == 8)
-		this->isPhoneBookFull = true;
 	if (!this->isPhoneBookFull)
 		this->savedContacts++;
+	if (this->numOfContacts == 8)
+		this->isPhoneBookFull = true;
 	return ;
 }
 
@@ -57,7 +57,7 @@ void	PhoneBook::searchPhoneBook(int index) const {
 		std::cout << RED << "Please enter a vaild index between 1:8" << RECLR << std::endl;
 		return ;
 	}
-	else if (index > this->numOfContacts + 1) {
+	else if (index > this->numOfContacts) {
 		std::cout << YELLOW << "Index " << index << " is empty!" << RECLR << std::endl;
 		return ;
 	}

@@ -6,10 +6,11 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 20:33:01 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/04 22:26:52 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:11:39 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include "colors.hpp"
@@ -45,6 +46,8 @@ void	searchContacts(PhoneBook& phonebook) {
 	std::cout << phonebook << std::endl;
 	std::cout << YELLOW << "Please choose the desired index: " << RECLR;
 	std::cin >> index;
+	if (index.length() > 1)
+		return;
 	phonebook.searchPhoneBook(std::atoi(index.c_str()));
 }
 
@@ -53,17 +56,19 @@ int	main(void) {
 	String		userInput;
 
 	std::cout << GREEN << "Welcome the PhoneBook App" << RECLR << std::endl;
-	while (true) {
-		std::cout << YELLOW << "Please choose one of these commands:" << RECLR << std::endl;
-		std::cout << BLUE << "ADD, SEARCH, EXIT" << RECLR << std::endl;
-		std::getline(std::cin >> std::ws, userInput);
+	std::cout << YELLOW << "Please choose one of these commands:" << RECLR << std::endl;
+	std::cout << BLUE << "ADD, SEARCH, EXIT" << RECLR << std::endl;
+	while (std::getline(std::cin >> std::ws, userInput))
+	{
 		if (!userInput.compare("EXIT"))
-			exit(0);
+			return (0);
 		else if (!userInput.compare("ADD"))
 			addNewContact(phonebook);
 		else if (!userInput.compare("SEARCH"))
 			searchContacts(phonebook);
 		else
 			std::cout << RED << "Please enter a valid input!" << RECLR << std::endl;
+		std::cout << YELLOW << "Please choose one of these commands:" << RECLR << std::endl;
+		std::cout << BLUE << "ADD, SEARCH, EXIT" << RECLR << std::endl;
 	}
 }
