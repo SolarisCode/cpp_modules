@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 16:46:46 by melkholy          #+#    #+#             */
-/*   Updated: 2023/07/24 18:39:15 by melkholy         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:51:15 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class	Bureaucrat
 public:
 	Bureaucrat(void);
 	Bureaucrat(int grade);
+	Bureaucrat(Bureaucrat const& src);
+	Bureaucrat&	operator=(Bureaucrat const& rhs);
 	std::string	getName(void) const;
 	int			getGrade(void) const;
 	void		incrementGrade(void);
@@ -30,7 +32,6 @@ public:
 private:
 	const std::string	_name;
 	int					_grade;
-
 };
 
 std::ostream&	operator<<(std::ostream& OST, Bureaucrat const& obj);
