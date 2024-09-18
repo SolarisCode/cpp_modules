@@ -1,5 +1,5 @@
-NAME = easyfind
-CPPFILES = ./main.cpp
+NAME = span
+CPPFILES = ./main.cpp ./Span.cpp
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 

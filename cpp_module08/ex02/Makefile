@@ -1,5 +1,5 @@
-NAME = easyfind
-CPPFILES = ./main.cpp
+NAME = mutantstack
+CPPFILES = ./main.cpp ./MutantStack.tpp
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
