@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:47:17 by melkholy          #+#    #+#             */
-/*   Updated: 2024/09/22 19:48:34 by melkholy         ###   ########.fr       */
+/*   Updated: 2024/09/22 20:05:55 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	BitcoinExchange::init_databse(const std::string & db_path, bool mode) const
 	if(db_fd.is_open())
 	{
 		getline(db_fd, line);
+		if (line.empty())
+		{
+			std::cout << "DataFile: File is empty, please double check.\n";
+			exit(0);
+		}
 		while(getline(db_fd, line))
 		{
 			date_btc = "";
@@ -69,6 +74,11 @@ void	BitcoinExchange::display_exchange(const std::string & infile) const
 	if (input.is_open())
 	{
 		getline(input, input_line);
+		if (input_line.empty())
+		{
+			std::cout << "Input: File is empty, please double check.\n";
+			exit(0);
+		}
 		while(getline(input, input_line))
 		{
 			checker = this->is_valid_input(input_line, input_date, &input_nb_btc);
