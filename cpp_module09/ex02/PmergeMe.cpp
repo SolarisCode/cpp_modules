@@ -6,7 +6,7 @@
 /*   By: melkholy <melkholy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:51:00 by melkholy          #+#    #+#             */
-/*   Updated: 2024/09/22 21:37:00 by melkholy         ###   ########.fr       */
+/*   Updated: 2024/09/22 22:44:08 by melkholy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ PmergeMe::~PmergeMe(void)
 
 void	PmergeMe::merge_me(char** args, int len)
 {
-	int i = 1, tmp, j;
+	int i = 1, tmp, j, index;
 	this->_size = len;
 	float bench_vec, bench_deq;
 
-	std::cout << "Before: ";
 	while (args[i])
 	{
 		j = 0;
@@ -44,6 +43,13 @@ void	PmergeMe::merge_me(char** args, int len)
 			}
 			j++;
 		}
+		index = -1;
+		while (args[++index])
+			if (i != index && !strcmp(args[i], args[index]))
+			{
+				std::cout << "Error: Bad input (Duplication)\n";
+				return ;
+			}
 		std::stringstream ss(args[i]);
 		ss >> tmp;
 		if (tmp < 0)
@@ -63,6 +69,7 @@ void	PmergeMe::merge_me(char** args, int len)
 	merge_insert_sort(this->_deq);
 	bench_deq = (float)(clock() - start);
 	i = 1;
+	std::cout << "Before: ";
 	while (args[i])
 	{
 		std::cout << args[i] << " ";
